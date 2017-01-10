@@ -18,7 +18,7 @@ module.exports = NodeHelper.create({
     if (notification == "SUNCALC_CONFIG" && this.started == false){
       this.config = payload;
     } else if (notification == "SUNCALC_CALC" ){
-      var times = SunCalc.getTimes(, this.config.latitude, this.config.latitude);
+      var times = SunCalc.getTimes(new Date(), this.config.latitude, this.config.latitude);
       self.sendSocketNotification("SUNCALC_CALC", times);
     }
   }
