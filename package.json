@@ -1,0 +1,23 @@
+{
+  "name": "Magic-Mirror-Module-Suncalc",
+  "version": "1.0.0",
+  "desription": "Calculating sunrise and sunset for a given latitude and longitude"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janbanan007/mmm-suncalc"
+  },
+  "keywords": [
+    "magic mirror",
+    "SunCalc",
+    "module"
+  ],
+  "author": "janbanan007",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "https://github.com/janbanan007/mmm-suncalc#mmm-suncalc",
+  "dependencies": {
+    "suncalc": "latest"
+  }
+}
