@@ -2,7 +2,7 @@
 
 /* Magic Mirror
  * Module: mmm-suncalc
- *
+ * 
  * MIT Licensed
 */
 
@@ -11,15 +11,20 @@ const SunCalc = require('suncalc');
 
 module.exports = NodeHelper.create({
   start: function(){
-    this.started = false;
+    console.log("Starting node_helper for mmm-suncalc: ");
   },
   socketNotificationReceived: function(notification, payload) {
     const self = this;
-    if (notification == "SUNCALC_CONFIG" && this.started == false){
+    if (notification == "SET_CONFIG"){
       this.config = payload;
-    } else if (notification == "SUNCALC_CALC" ){
-      var times = SunCalc.getTimes(new Date(), this.config.latitude, this.config.latitude);
-      self.sendSocketNotification("SUNCALC_CALC", times);
+      this.sendSunCalc();
+      setInterval( function(){
+        self.sendSunCalc();
+      }, this.config.updateInterval);
     }
+  },
+  sendSunCalc: function(){
+    var times = SunCalc.getTimes(new Date(), this.config.latitude, this.config.longitude);
+    this.sendSocketNotification("SUNCALC_CALC", times);
   }
 });
