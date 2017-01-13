@@ -45,8 +45,10 @@ Add module configuration to config.js.
 ```js
 {
   module: 'mmmm-suncalc',
-  latitude: 60.12345,
-  longitude: 10.12345,
-  text: 'Sunrise <sunrise>, sunset <sunset> solar noon <solarNoon>' 
+    config: {
+    latitude: 60.12345,
+    longitude: 10.12345,
+    text: 'Sunrise <sunrise>, sunset <sunset> solar noon <solarNoon>',
+  },
 },
 ```
