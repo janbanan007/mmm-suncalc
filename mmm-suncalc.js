@@ -52,6 +52,7 @@ Module.register("mmm-suncalc",{
   // Override dom generator.
   getDom: function() {
     var wrapper = document.createElement("div");
+    wrapper.className = this.config.classes ? this.config.classes : "small";
     if( this.times != null ){
       var res = this.config.text;
       for ( var time in this.times ){
